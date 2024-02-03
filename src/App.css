@@ -45,3 +45,13 @@
 .prompt{
   text-align: start;
 }
+
+.card-text{
+  text-align: start;
+  color: #85BAA1;
+}
+
+.card-title{
+  text-align: start;
+  color: #698181;
+}

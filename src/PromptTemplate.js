@@ -1,6 +1,7 @@
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import { Card } from 'react-bootstrap';
 
 function PromptTemplate() {
   return (
@@ -9,15 +10,36 @@ function PromptTemplate() {
         <b>Your prompt is</b>
       </h1>
       <br />
-      <Row>
+      <Col>
+        <Card
+          border='success'
+          style={{
+            width: '100%',
+            backgroundColor: '#212529',
+          }}
+        >
+          <Card.Header style={{ color: '#85BAA1' }}>Prompt</Card.Header>
+          <Card.Body>
+            <Card.Title className='card-title'>Character</Card.Title>
+            <Card.Text className='card-text'>(insert Character)</Card.Text>
+            <Card.Title className='card-title'>Environment</Card.Title>
+            <Card.Text className='card-text'>(insert Environment)</Card.Text>
+            <Card.Title className='card-title'>Accessory</Card.Title>
+            <Card.Text className='card-text'>(insert Accesory)</Card.Text>
+            <Card.Title className='card-title'>Friend</Card.Title>
+            <Card.Text className='card-text'>(insert Friend)</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+      {/* <Row border='primary' style={{ width: '18rem' }}>
         <Col>
-          <div className='prompt'>Characters:</div>
-          <div className='prompt'>Environment Themes:</div>
-          <div className='prompt'>Accessories:</div>
-          <div className='prompt'>Friends:</div>
+          <div className='prompt'>Character:</div>
+          <div className='prompt'>Environment:</div>
+          <div className='prompt'>Accessory:</div>
+          <div className='prompt'>Friend:</div>
         </Col>
         <Col></Col>
-      </Row>
+      </Row> */}
       <br />
       <Row>
         <Col>

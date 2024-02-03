@@ -14,9 +14,11 @@ const Home = () => {
           </Link>
         </Col>
         <Col>
-          <Button variant='outline-primary' style={{ whiteSpace: 'nowrap' }}>
-            Import More Prompts
-          </Button>
+          <Link to='/import-prompt'>
+            <Button variant='outline-primary' style={{ whiteSpace: 'nowrap' }}>
+              Import More Prompts
+            </Button>
+          </Link>
         </Col>
       </Row>
     </div>
