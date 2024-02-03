@@ -31,15 +31,6 @@ function PromptTemplate() {
           </Card.Body>
         </Card>
       </Col>
-      {/* <Row border='primary' style={{ width: '18rem' }}>
-        <Col>
-          <div className='prompt'>Character:</div>
-          <div className='prompt'>Environment:</div>
-          <div className='prompt'>Accessory:</div>
-          <div className='prompt'>Friend:</div>
-        </Col>
-        <Col></Col>
-      </Row> */}
       <br />
       <Row>
         <Col>
@@ -49,6 +40,12 @@ function PromptTemplate() {
           <Button variant='outline-primary'>
             Generate Another Prompt (without saving)
           </Button>
+        </Col>
+      </Row>
+      <br />
+      <Row>
+        <Col>
+          <Button variant='outline-success'>Back (without saving)</Button>
         </Col>
       </Row>
     </div>
