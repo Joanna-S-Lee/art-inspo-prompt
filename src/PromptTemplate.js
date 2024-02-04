@@ -2,8 +2,55 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+import {
+  CHARACTERS_KEY,
+  ENVIRONMENTS_KEY,
+  ACCESSORIES_KEY,
+  FRIENDS_KEY,
+} from './Data';
+import { useState } from 'react';
+
+const characters = JSON.parse(localStorage.getItem(CHARACTERS_KEY));
+const environments = JSON.parse(localStorage.getItem(ENVIRONMENTS_KEY));
+const accessories = JSON.parse(localStorage.getItem(ACCESSORIES_KEY));
+const friends = JSON.parse(localStorage.getItem(FRIENDS_KEY));
 
 function PromptTemplate() {
+  const [character, setCharacter] = useState(
+    () => characters[Math.floor(Math.random() * characters.length)]
+  );
+  const [environment, setEnvironment] = useState(
+    () => environments[Math.floor(Math.random() * environments.length)]
+  );
+  const [accessory, setAccessory] = useState(
+    () => accessories[Math.floor(Math.random() * accessories.length)]
+  );
+  const [friend, setFriend] = useState(
+    () => friends[Math.floor(Math.random() * friends.length)]
+  );
+
+  function generateRandomPrompt() {
+    console.log('Button clicked!');
+
+    setCharacter(
+      (prevCharacter) =>
+        characters[Math.floor(Math.random() * characters.length)]
+    );
+    setEnvironment(
+      (prevEnvironment) =>
+        environments[Math.floor(Math.random() * environments.length)]
+    );
+    setAccessory(
+      (prevAccessory) =>
+        accessories[Math.floor(Math.random() * accessories.length)]
+    );
+    setFriend(
+      (prevFriend) => friends[Math.floor(Math.random() * friends.length)]
+    );
+  }
+
   return (
     <div className='prompt-template'>
       <h1>
@@ -21,13 +68,13 @@ function PromptTemplate() {
           <Card.Header style={{ color: '#85BAA1' }}>Prompt</Card.Header>
           <Card.Body>
             <Card.Title className='card-title'>Character</Card.Title>
-            <Card.Text className='card-text'>(insert Character)</Card.Text>
+            <Card.Text className='card-text'>{character}</Card.Text>
             <Card.Title className='card-title'>Environment</Card.Title>
-            <Card.Text className='card-text'>(insert Environment)</Card.Text>
+            <Card.Text className='card-text'>{environment}</Card.Text>
             <Card.Title className='card-title'>Accessory</Card.Title>
-            <Card.Text className='card-text'>(insert Accesory)</Card.Text>
+            <Card.Text className='card-text'>{accessory}</Card.Text>
             <Card.Title className='card-title'>Friend</Card.Title>
-            <Card.Text className='card-text'>(insert Friend)</Card.Text>
+            <Card.Text className='card-text'>{friend}</Card.Text>
           </Card.Body>
         </Card>
       </Col>
@@ -37,7 +84,7 @@ function PromptTemplate() {
           <Button variant='outline-primary'>Save Prompt</Button>
         </Col>
         <Col>
-          <Button variant='outline-primary'>
+          <Button variant='outline-primary' onClick={generateRandomPrompt}>
             Generate Another Prompt (without saving)
           </Button>
         </Col>
@@ -45,7 +92,9 @@ function PromptTemplate() {
       <br />
       <Row>
         <Col>
-          <Button variant='outline-success'>Back (without saving)</Button>
+          <Link to='/'>
+            <Button variant='outline-success'>Back (without saving)</Button>
+          </Link>
         </Col>
       </Row>
     </div>

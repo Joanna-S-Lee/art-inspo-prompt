@@ -20,4 +20,4 @@ function initPrompts() {
   localStorage.setItem(PROMPTS_KEY, JSON.stringify(prompts));
 }
 
-export { initUsers };
+export { initPrompts };

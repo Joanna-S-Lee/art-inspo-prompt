@@ -4,6 +4,17 @@ import Import from './Import';
 import PromptTemplate from './PromptTemplate';
 import Footer from './fragments/Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  initAccessories,
+  initCharacters,
+  initEnvironments,
+  initFriends,
+} from './Data';
+
+initCharacters();
+initEnvironments();
+initAccessories();
+initFriends();
 
 function App() {
   return (
