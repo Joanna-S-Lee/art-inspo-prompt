@@ -9,12 +9,15 @@ import {
   initCharacters,
   initEnvironments,
   initFriends,
+  initSavedPrompts,
 } from './Data';
+import SavedPrompts from './SavedPrompts';
 
 initCharacters();
 initEnvironments();
 initAccessories();
 initFriends();
+initSavedPrompts();
 
 function App() {
   return (
@@ -25,6 +28,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/prompt' element={<PromptTemplate />} />
             <Route path='/import-prompt' element={<Import />} />
+            <Route path='/saved-prompts' element={<SavedPrompts />} />
           </Routes>
         </header>
         <div className='row'>

@@ -21,6 +21,12 @@ const Home = () => {
           </Link>
         </Col>
       </Row>
+      <br />
+      <Row>
+        <Link to='/saved-prompts'>
+          <Button variant='outline-info'>View Saved Prompts</Button>
+        </Link>
+      </Row>
     </div>
   );
 };

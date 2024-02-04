@@ -46,6 +46,16 @@ function initFriends() {
   localStorage.setItem(FRIENDS_KEY, JSON.stringify(friends));
 }
 
+// saved prompts
+const SAVEDPROMPTS_KEY = 'savedprompts';
+const savedPrompts = [];
+
+function initSavedPrompts() {
+  if (localStorage.getItem(SAVEDPROMPTS_KEY) !== null) return;
+
+  localStorage.setItem(SAVEDPROMPTS_KEY, JSON.stringify(savedPrompts));
+}
+
 export {
   characters,
   environments,
@@ -55,8 +65,11 @@ export {
   ENVIRONMENTS_KEY,
   ACCESSORIES_KEY,
   FRIENDS_KEY,
+  SAVEDPROMPTS_KEY,
+  savedPrompts,
   initCharacters,
   initEnvironments,
   initAccessories,
   initFriends,
+  initSavedPrompts,
 };

@@ -9,6 +9,7 @@ import {
   ENVIRONMENTS_KEY,
   ACCESSORIES_KEY,
   FRIENDS_KEY,
+  SAVEDPROMPTS_KEY,
 } from './Data';
 import { useState } from 'react';
 
@@ -32,8 +33,6 @@ function PromptTemplate() {
   );
 
   function generateRandomPrompt() {
-    console.log('Button clicked!');
-
     setCharacter(
       (prevCharacter) =>
         characters[Math.floor(Math.random() * characters.length)]
@@ -49,6 +48,21 @@ function PromptTemplate() {
     setFriend(
       (prevFriend) => friends[Math.floor(Math.random() * friends.length)]
     );
+  }
+
+  function saveNewPrompt() {
+    console.log('savePrompt func is called');
+
+    // retrieving existing prompts
+    const existingPrompts = JSON.parse(localStorage.getItem(SAVEDPROMPTS_KEY));
+
+    // saving new prompt
+    const newPrompt = { character, environment, accessory, friend };
+
+    existingPrompts.push(newPrompt);
+
+    // update localStorage with new prompt
+    localStorage.setItem(SAVEDPROMPTS_KEY, JSON.stringify(existingPrompts));
   }
 
   return (
@@ -81,7 +95,9 @@ function PromptTemplate() {
       <br />
       <Row>
         <Col>
-          <Button variant='outline-primary'>Save Prompt</Button>
+          <Button variant='outline-primary' onClick={saveNewPrompt}>
+            Save Prompt
+          </Button>
         </Col>
         <Col>
           <Button variant='outline-primary' onClick={generateRandomPrompt}>
@@ -94,6 +110,11 @@ function PromptTemplate() {
         <Col>
           <Link to='/'>
             <Button variant='outline-success'>Back (without saving)</Button>
+          </Link>
+        </Col>
+        <Col>
+          <Link to='/saved-prompts'>
+            <Button variant='outline-info'>View Saved Prompts</Button>
           </Link>
         </Col>
       </Row>
