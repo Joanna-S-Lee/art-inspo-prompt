@@ -59,10 +59,24 @@ function PromptTemplate() {
     // saving new prompt
     const newPrompt = { character, environment, accessory, friend };
 
-    existingPrompts.push(newPrompt);
+    const isDuplicate = existingPrompts.some(
+      (prompt) =>
+        prompt.character === newPrompt.character &&
+        prompt.environment === newPrompt.environment &&
+        prompt.accessory === newPrompt.accessory &&
+        prompt.friend === newPrompt.friend
+    );
 
-    // update localStorage with new prompt
-    localStorage.setItem(SAVEDPROMPTS_KEY, JSON.stringify(existingPrompts));
+    if (!isDuplicate) {
+      existingPrompts.push(newPrompt);
+
+      // update localStorage with new prompt
+      localStorage.setItem(SAVEDPROMPTS_KEY, JSON.stringify(existingPrompts));
+
+      alert('Prompt Saved Successfully');
+    } else if (isDuplicate) {
+      alert('Prompt has already been saved');
+    }
   }
 
   return (
