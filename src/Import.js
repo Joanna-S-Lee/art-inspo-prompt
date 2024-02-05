@@ -3,73 +3,66 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { SAVEDPROMPTS_KEY } from './Data';
+import { useState } from 'react';
 
 function Import() {
+  const [existingSavedPrompts, setExistingSavedPrompts] = useState(
+    JSON.parse(localStorage.getItem(SAVEDPROMPTS_KEY) || [])
+  );
+
+  function handleSubmit() {}
   return (
     <div>
       <h1>Import Prompt</h1>
       <br />
-      <Form style={{ textAlign: 'start' }}>
-        <Form.Group controlId='formCharacter'>
+      <Row>Which Category would you like to add a new prompt to?</Row>
+      <br />
+      <Row>
+        <Form className='import-form'>
+          <br />
           <Row>
-            <Col sm='5'>
-              <Form.Label>Character</Form.Label>
-            </Col>
-            <Col sm='7'>
-              <Form.Control type='text' />
-            </Col>
+            <Dropdown>
+              <Dropdown.Toggle variant='outline-success'>
+                Pick a Category
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item>Characters</Dropdown.Item>
+                <Dropdown.Item>Environments</Dropdown.Item>
+                <Dropdown.Item>Acccessories</Dropdown.Item>
+                <Dropdown.Item>Friends</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Row>
-        </Form.Group>
-        <br />
-        <Form.Group controlId='formEnvironment'>
+          <br />
           <Row>
-            <Col sm='5'>
-              <Form.Label>Environment </Form.Label>
-            </Col>
-            <Col sm='7'>
-              <Form.Control type='text' />
-            </Col>
+            <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
+              <Form.Label>Prompt</Form.Label>
+              <Col>
+                <Form.Control />
+              </Col>
+            </Form.Group>
           </Row>
-        </Form.Group>
-        <br />
-        <Form.Group controlId='formAccessory'>
+          <br />
           <Row>
-            <Col sm='5'>
-              <Form.Label>Accessory</Form.Label>
-            </Col>
-            <Col sm='7'>
-              <Form.Control type='text' />
-            </Col>
-          </Row>
-        </Form.Group>
-        <br />
-        <Form.Group controlId='formFriend'>
-          <Row>
-            <Col sm='5'>
-              <Form.Label>Friend</Form.Label>
-            </Col>
-            <Col sm='7'>
-              <Form.Control type='text' />
-            </Col>
-          </Row>
-        </Form.Group>
-        <br />
-        <Row>
-          <Col sm='4'></Col>
-          <Col>
-            <Button variant='outline-primary' type='submit' size='lg'>
-              Submit
-            </Button>
-          </Col>
-          <Col>
-            <Link to='/'>
-              <Button variant='outline-primary' size='lg'>
-                Cancel
+            <Col>
+              <Button variant='outline-primary' type='submit' size='lg'>
+                Submit
               </Button>
-            </Link>
-          </Col>
-        </Row>
-      </Form>
+            </Col>
+            <Col>
+              <Link to='/'>
+                <Button variant='outline-primary' size='lg'>
+                  Cancel
+                </Button>
+              </Link>
+            </Col>
+          </Row>
+          <br />
+        </Form>
+      </Row>
+      <br />
     </div>
   );
 }

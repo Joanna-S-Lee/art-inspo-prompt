@@ -83,6 +83,9 @@ function PromptTemplate() {
     } else if (isDuplicate) {
       alert('Prompt has already been saved');
     }
+
+    //after saving prompt, auto generate new prompt
+    generateRandomPrompt();
   }
 
   return (
