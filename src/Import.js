@@ -4,12 +4,29 @@ import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { SAVEDPROMPTS_KEY } from './Data';
+import {
+  CHARACTERS_KEY,
+  ENVIRONMENTS_KEY,
+  ACCESSORIES_KEY,
+  FRIENDS_KEY,
+} from './Data';
 import { useState } from 'react';
 
 function Import() {
-  const [existingSavedPrompts, setExistingSavedPrompts] = useState(
-    JSON.parse(localStorage.getItem(SAVEDPROMPTS_KEY) || [])
+  const [charactersArr, setCharactersArr] = useState(
+    JSON.parse(localStorage.getItem(CHARACTERS_KEY))
+  );
+
+  const [environmentsArr, setEnvironmentsArr] = useState(
+    JSON.parse(localStorage.getItem(ENVIRONMENTS_KEY))
+  );
+
+  const [accessoriesArr, setAccessoriesArr] = useState(
+    JSON.parse(localStorage.getItem(ACCESSORIES_KEY))
+  );
+
+  const [friendsArr, setFriendsArr] = useState(
+    JSON.parse(localStorage.getItem(FRIENDS_KEY))
   );
 
   function handleSubmit() {}
