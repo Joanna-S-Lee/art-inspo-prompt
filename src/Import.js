@@ -1,6 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 function Import() {
@@ -61,9 +62,11 @@ function Import() {
             </Button>
           </Col>
           <Col>
-            <Button variant='outline-primary' size='lg'>
-              Cancel
-            </Button>
+            <Link to='/'>
+              <Button variant='outline-primary' size='lg'>
+                Cancel
+              </Button>
+            </Link>
           </Col>
         </Row>
       </Form>

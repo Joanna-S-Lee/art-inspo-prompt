@@ -23,6 +23,19 @@ function SavedPrompts() {
     localStorage.setItem(SAVEDPROMPTS_KEY, JSON.stringify(updatedPrompts));
   }
 
+  function handleDrawnClick(index) {
+    const updatedPrompts = [...existingSavedPrompts];
+
+    //update isDrawn property
+    updatedPrompts[index].isDrawn = !updatedPrompts[index].isDrawn;
+
+    // update state with modified array
+    setExistingSavedPrompts(updatedPrompts);
+
+    // update localStorage with updated array
+    localStorage.setItem(SAVEDPROMPTS_KEY, JSON.stringify(updatedPrompts));
+  }
+
   return (
     <div>
       <h1>Saved Prompts</h1>
@@ -36,7 +49,7 @@ function SavedPrompts() {
               border='success'
               style={{
                 width: '100%',
-                backgroundColor: '#212529',
+                backgroundColor: item.isDrawn ? '#ccc' : '#212529',
               }}
             >
               <Card.Header style={{ color: '#85BAA1' }}>
@@ -51,12 +64,40 @@ function SavedPrompts() {
                 <Card.Text className='card-text'>{item.accessory}</Card.Text>
                 <Card.Title className='card-title'>Friend</Card.Title>
                 <Card.Text className='card-text'>{item.friend}</Card.Text>
-                <Button
-                  variant='outline-danger'
-                  onClick={() => handleDelete(index)}
-                >
-                  DELETE
-                </Button>
+                {item.isDrawn && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%) rotate(-45deg)',
+                      color: 'rgba(0, 0, 0, 0.5)',
+                      fontSize: '25px',
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    ALREADY DRAWN
+                  </div>
+                )}
+                <Row>
+                  <Col>
+                    <Button
+                      variant='outline-danger'
+                      onClick={() => handleDelete(index)}
+                    >
+                      DELETE
+                    </Button>
+                  </Col>
+                  <Col>
+                    <Button
+                      variant='outline-success'
+                      onClick={() => handleDrawnClick(index)}
+                      style={{ whiteSpace: 'nowrap' }}
+                    >
+                      {item.isDrawn ? 'Undo Drawn' : 'Mark as Drawn'}
+                    </Button>
+                  </Col>
+                </Row>
               </Card.Body>
             </Card>
             <br />

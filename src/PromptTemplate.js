@@ -57,7 +57,13 @@ function PromptTemplate() {
     const existingPrompts = JSON.parse(localStorage.getItem(SAVEDPROMPTS_KEY));
 
     // saving new prompt
-    const newPrompt = { character, environment, accessory, friend };
+    const newPrompt = {
+      character,
+      environment,
+      accessory,
+      friend,
+      isDrawn: false,
+    };
 
     const isDuplicate = existingPrompts.some(
       (prompt) =>
