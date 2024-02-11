@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Alert } from 'react-bootstrap';
 
 import {
   CHARACTERS_KEY,
@@ -121,6 +122,13 @@ function PromptTemplate() {
           <Button variant='outline-primary' onClick={saveNewPrompt}>
             Save Prompt
           </Button>
+          <Alert variant='success'>
+            Saved Successfully.
+            <br />
+            <Alert.Link href='/saved-prompts'>
+              View Saved Prompts here
+            </Alert.Link>
+          </Alert>
         </Col>
         <Col>
           <Button variant='outline-primary' onClick={generateRandomPrompt}>
