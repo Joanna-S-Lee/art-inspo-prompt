@@ -33,6 +33,8 @@ function PromptTemplate() {
     () => friends[Math.floor(Math.random() * friends.length)]
   );
 
+  const [style, setStyle] = useState('message-hidden');
+
   function generateRandomPrompt() {
     setCharacter(
       (prevCharacter) =>
@@ -80,13 +82,15 @@ function PromptTemplate() {
       // update localStorage with new prompt
       localStorage.setItem(SAVEDPROMPTS_KEY, JSON.stringify(existingPrompts));
 
-      alert('Prompt Saved Successfully');
+      // alert('Prompt Saved Successfully');
+      setStyle('message-visible');
     } else if (isDuplicate) {
       alert('Prompt has already been saved');
     }
 
     //after saving prompt, auto generate new prompt
     generateRandomPrompt();
+    // setStyle('message-hidden');
   }
 
   return (
@@ -116,19 +120,27 @@ function PromptTemplate() {
           </Card.Body>
         </Card>
       </Col>
+      <Row>
+        <Col></Col>
+        <Col>
+          <div className={style}>
+            Prompt saved successfully! New prompt generating...
+          </div>
+        </Col>
+      </Row>
       <br />
       <Row>
         <Col>
           <Button variant='outline-primary' onClick={saveNewPrompt}>
             Save Prompt
           </Button>
-          <Alert variant='success'>
+          {/* <Alert variant='success'>
             Saved Successfully.
             <br />
             <Alert.Link href='/saved-prompts'>
               View Saved Prompts here
             </Alert.Link>
-          </Alert>
+          </Alert> */}
         </Col>
         <Col>
           <Button variant='outline-primary' onClick={generateRandomPrompt}>

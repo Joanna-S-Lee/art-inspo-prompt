@@ -60,3 +60,25 @@
   border-color: #007bff;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
+
+.message-hidden{
+  display: none;
+}
+
+.message-visible{
+  font-size: medium;
+  color: #9900ff; 
+  animation: hideMe 2s forwards;
+}
+
+@keyframes hideMe{
+  0%{
+      opacity: 1;
+  }
+  99.99%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0;
+  }
+}
