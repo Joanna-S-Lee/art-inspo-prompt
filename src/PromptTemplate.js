@@ -12,14 +12,14 @@ import {
   FRIENDS_KEY,
   SAVEDPROMPTS_KEY,
 } from './Data';
-import { useState } from 'react';
-
-const characters = JSON.parse(localStorage.getItem(CHARACTERS_KEY));
-const environments = JSON.parse(localStorage.getItem(ENVIRONMENTS_KEY));
-const accessories = JSON.parse(localStorage.getItem(ACCESSORIES_KEY));
-const friends = JSON.parse(localStorage.getItem(FRIENDS_KEY));
+import { useEffect, useState } from 'react';
 
 function PromptTemplate() {
+  const characters = JSON.parse(localStorage.getItem(CHARACTERS_KEY));
+  const environments = JSON.parse(localStorage.getItem(ENVIRONMENTS_KEY));
+  const accessories = JSON.parse(localStorage.getItem(ACCESSORIES_KEY));
+  const friends = JSON.parse(localStorage.getItem(FRIENDS_KEY));
+
   const [character, setCharacter] = useState(
     () => characters[Math.floor(Math.random() * characters.length)]
   );
@@ -84,6 +84,11 @@ function PromptTemplate() {
 
       // alert('Prompt Saved Successfully');
       setStyle('message-visible');
+
+      // reset success message
+      setTimeout(() => {
+        setStyle('message-hidden');
+      }, 500);
     } else if (isDuplicate) {
       alert('Prompt has already been saved');
     }
