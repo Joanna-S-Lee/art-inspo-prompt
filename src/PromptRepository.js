@@ -14,8 +14,6 @@ function initPrompts() {
     },
   ];
 
-  // hard-code categories?
-
   // storing the above data in localStorage
   localStorage.setItem(PROMPTS_KEY, JSON.stringify(prompts));
 }

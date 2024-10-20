@@ -1,16 +1,13 @@
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-import Dropdown from 'react-bootstrap/Dropdown';
+import { Button, Form, Row, Col, Dropdown } from 'react-bootstrap';
+import { useState } from 'react';
+
 import {
   CHARACTERS_KEY,
   ENVIRONMENTS_KEY,
   ACCESSORIES_KEY,
   FRIENDS_KEY,
 } from './Data';
-import { useState } from 'react';
 
 function Import() {
   const [charactersArr, setCharactersArr] = useState(

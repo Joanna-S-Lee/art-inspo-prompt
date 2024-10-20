@@ -1,9 +1,12 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import './App.css';
 import Home from './Home';
 import Import from './Import';
 import PromptTemplate from './PromptTemplate';
 import Footer from './fragments/Footer';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import SavedPrompts from './SavedPrompts';
+
 import {
   initAccessories,
   initCharacters,
@@ -11,7 +14,6 @@ import {
   initFriends,
   initSavedPrompts,
 } from './Data';
-import SavedPrompts from './SavedPrompts';
 
 initCharacters();
 initEnvironments();

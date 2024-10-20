@@ -1,9 +1,6 @@
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
-import { Card } from 'react-bootstrap';
+import { Card, Col, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Alert } from 'react-bootstrap';
+import { useState } from 'react';
 
 import {
   CHARACTERS_KEY,
@@ -12,7 +9,6 @@ import {
   FRIENDS_KEY,
   SAVEDPROMPTS_KEY,
 } from './Data';
-import { useEffect, useState } from 'react';
 
 function PromptTemplate() {
   const characters = JSON.parse(localStorage.getItem(CHARACTERS_KEY));
@@ -139,13 +135,6 @@ function PromptTemplate() {
           <Button variant='outline-primary' onClick={saveNewPrompt}>
             Save Prompt
           </Button>
-          {/* <Alert variant='success'>
-            Saved Successfully.
-            <br />
-            <Alert.Link href='/saved-prompts'>
-              View Saved Prompts here
-            </Alert.Link>
-          </Alert> */}
         </Col>
         <Col>
           <Button variant='outline-primary' onClick={generateRandomPrompt}>

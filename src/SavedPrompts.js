@@ -1,14 +1,13 @@
+import { useState } from 'react';
 import { Row, Col, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 import { SAVEDPROMPTS_KEY } from './Data';
-import { useState } from 'react';
 
 function SavedPrompts() {
   const [existingSavedPrompts, setExistingSavedPrompts] = useState(
     JSON.parse(localStorage.getItem(SAVEDPROMPTS_KEY) || [])
   );
-
-  console.log(existingSavedPrompts);
 
   function handleDelete(index) {
     const updatedPrompts = [...existingSavedPrompts];

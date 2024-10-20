@@ -1,5 +1,3 @@
-// const characters = ['Happy Girl', 'Gardener', 'Book Lover'];
-
 const characters = [
   'Happy Girl',
   'Animal Lover',
@@ -52,8 +50,6 @@ const characters = [
   'Writer',
   'Coffee Lover',
 ];
-
-// const environments = ['Flower Garden', 'Beachy', 'Forest'];
 
 const environments = [
   'Flower Garden',
@@ -108,8 +104,6 @@ const environments = [
   'Zoo',
 ];
 
-// const accessories = ['Straw Hat', 'Dangly Earrings', 'Sunflower'];
-
 const accessories = [
   'Straw Hat',
   'Round Glasses',
@@ -162,8 +156,6 @@ const accessories = [
   'Sparklers',
   'Book',
 ];
-
-// const friends = ['Ladybug', 'Bumblebee', 'Beetle'];
 
 const friends = [
   'Ladybug',
