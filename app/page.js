@@ -1,3 +1,4 @@
+"use client";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './App.css';
@@ -21,7 +22,7 @@ initAccessories();
 initFriends();
 initSavedPrompts();
 
-function App() {
+function Page() {
   return (
     <Router>
       <div className='App'>
@@ -41,4 +42,4 @@ function App() {
   );
 }
 
-export default App;
+export default Page;

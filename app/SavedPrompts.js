@@ -1,3 +1,4 @@
+"use client";
 import { useState } from 'react';
 import { Row, Col, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
